@@ -1,1 +1,10 @@
-spring.application.name=demo
+spring:
+  application:
+    name: demo
+
+  datasource:
+    username: ${db.user:demo_user}
+    password: ${db.password:demo_password}
+    url: jdbc:postgresql://${db.host:localhost}:${db.port:5432}/${db.name:demo_db}?currentSchema=demo_schema
+  flyway:
+    schemas: demo_schema

@@ -8,11 +8,17 @@ import org.testcontainers.utility.DockerImageName
 
 @TestConfiguration(proxyBeanMethods = false)
 class TestcontainersConfiguration {
+    companion object {
+        private val POSTGRES_IMAGE = DockerImageName.parse("postgres:latest")
+    }
 
     @Bean
     @ServiceConnection
-    fun postgresContainer(): PostgreSQLContainer<*> {
-        return PostgreSQLContainer(DockerImageName.parse("postgres:latest"))
-    }
-
+    fun postgresContainer(): PostgreSQLContainer<*> =
+        PostgreSQLContainer<Nothing>(POSTGRES_IMAGE).apply {
+            withDatabaseName("demo_db")
+            withUsername("demo_user")
+            withPassword("demo_password")
+            start()
+        }
 }
