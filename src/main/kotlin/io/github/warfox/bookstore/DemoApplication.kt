@@ -1,4 +1,4 @@
-package io.github.warfox
+package io.github.warfox.bookstore
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

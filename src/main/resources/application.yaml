@@ -1,11 +1,11 @@
 spring:
   application:
-    name: demo
+    name: bookstore
 
   datasource:
-    username: ${db.user:demo_user}
-    password: ${db.password:demo_password}
-    url: jdbc:postgresql://${db.host:localhost}:${db.port:5432}/${db.name:demo_db}?currentSchema=public
+    username: ${db.user:bookstore_user}
+    password: ${db.password:bookstore_password}
+    url: jdbc:postgresql://${db.host:localhost}:${db.port:5432}/${db.name:bookstore_db}?currentSchema=public
 
   jooq:
     sql-dialect: postgres

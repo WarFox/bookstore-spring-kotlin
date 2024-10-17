@@ -1,6 +1,6 @@
-package io.github.warfox.repositories
+package io.github.warfox.bookstore.repositories
 
-import io.github.warfox.domain.Author
+import io.github.warfox.bookstore.domain.Author
 import io.github.warfox.jooq.Tables.AUTHORS
 import org.jooq.DSLContext
 import org.springframework.stereotype.Repository
@@ -16,12 +16,12 @@ class JooqAuthorsRepository(private val dslContext: DSLContext) : AuthorsReposit
         return dslContext.select(
             AUTHORS.ID,
             AUTHORS.FIRST_NAME,
-            AUTHORS.LAST_NAME
+            AUTHORS.LAST_NAME,
         ).from(AUTHORS).fetch().map { record ->
             Author(
                 id = record[AUTHORS.ID],
                 firstName = record[AUTHORS.FIRST_NAME],
-                lastName = record[AUTHORS.LAST_NAME]
+                lastName = record[AUTHORS.LAST_NAME],
             )
         }
     }

@@ -1,4 +1,4 @@
-package io.github.warfox
+package io.github.warfox.bookstore
 
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection
@@ -16,9 +16,9 @@ class TestcontainersConfiguration {
     @ServiceConnection
     fun postgresContainer(): PostgreSQLContainer<*> =
         PostgreSQLContainer<Nothing>(POSTGRES_IMAGE).apply {
-            withDatabaseName("demo_db")
-            withUsername("demo_user")
-            withPassword("demo_password")
+            withDatabaseName("bookstore_db")
+            withUsername("bookstore_user")
+            withPassword("bookstore_password")
             start()
         }
 }

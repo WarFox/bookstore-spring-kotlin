@@ -1,6 +1,6 @@
-package io.github.warfox.domain
+package io.github.warfox.bookstore.domain
 
-import java.util.*
+import java.util.UUID
 
 data class Author(
     val id: UUID,

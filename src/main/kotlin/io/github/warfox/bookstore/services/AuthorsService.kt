@@ -1,7 +1,7 @@
-package io.github.warfox.services
+package io.github.warfox.bookstore.services
 
-import io.github.warfox.domain.Author
-import io.github.warfox.repositories.AuthorsRepository
+import io.github.warfox.bookstore.domain.Author
+import io.github.warfox.bookstore.repositories.AuthorsRepository
 import org.springframework.stereotype.Service
 
 interface AuthorsService {

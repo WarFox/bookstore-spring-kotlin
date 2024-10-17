@@ -1,4 +1,4 @@
-package io.github.warfox
+package io.github.warfox.bookstore
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
