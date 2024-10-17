@@ -67,7 +67,7 @@ tasks.getByName<org.springframework.boot.gradle.tasks.run.BootRun>("bootRun") {
 }
 
 tasks.withType<GenerateJooqClassesTask> {
-    basePackageName = "io.github.warfox.demo.jooq"
+    basePackageName = "io.github.warfox.jooq"
     usingJavaConfig {
         database
             .withExcludes("flyway_schema_history")

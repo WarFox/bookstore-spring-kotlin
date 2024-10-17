@@ -1,46 +1,46 @@
-DROP TABLE IF EXISTS author_book, author, book;
+DROP TABLE IF EXISTS author_books, authors, books;
 
-CREATE TABLE author (
+CREATE TABLE authors
+(
     id
-        INT8 NOT NULL PRIMARY KEY,
+        UUID        NOT NULL PRIMARY KEY,
     first_name
         VARCHAR(50),
     last_name
         VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE book (
+CREATE TABLE books
+(
     id
-        INT8 NOT NULL PRIMARY KEY,
+        UUID         NOT NULL PRIMARY KEY,
     title
         VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE author_book (
-    author_id INT8 NOT NULL, book_id INT8 NOT NULL,
+CREATE TABLE author_books
+(
+    author_id UUID NOT NULL,
+    book_id   UUID NOT NULL,
     PRIMARY KEY (author_id, book_id),
     CONSTRAINT fk_ab_author
         FOREIGN KEY (author_id)
-        REFERENCES author (id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
+            REFERENCES authors (id)
+            ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_ab_book
-        FOREIGN KEY (book_id) REFERENCES book (id)
+        FOREIGN KEY (book_id) REFERENCES books (id)
 );
 
 INSERT
-INTO
-    author
-VALUES
-    (1, 'Kathy', 'Sierra'),
-    (2, 'Bert', 'Bates'),
-    (3, 'Bryan', 'Basham');
+INTO authors
+VALUES (gen_random_uuid(), 'Kathy', 'Sierra'),
+       (gen_random_uuid(), 'Bert', 'Bates'),
+       (gen_random_uuid(), 'Bryan', 'Basham');
 
 INSERT
-INTO
-    book
-VALUES
-    (1, 'Head First Java'),
-    (2, 'Head First Servlets and JSP'),
-    (3, 'OCA/OCP Java SE 7 Programmer');
+INTO books
+VALUES (gen_random_uuid(), 'Head First Java'),
+       (gen_random_uuid(), 'Head First Servlets and JSP'),
+       (gen_random_uuid(), 'OCA/OCP Java SE 7 Programmer');
 
-INSERT INTO author_book VALUES (1, 1), (1, 3), (2, 1);
+-- INSERT INTO author_books VALUES (1, 1), (1, 3), (2, 1);

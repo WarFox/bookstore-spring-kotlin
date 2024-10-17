@@ -5,6 +5,10 @@ spring:
   datasource:
     username: ${db.user:demo_user}
     password: ${db.password:demo_password}
-    url: jdbc:postgresql://${db.host:localhost}:${db.port:5432}/${db.name:demo_db}?currentSchema=demo_schema
+    url: jdbc:postgresql://${db.host:localhost}:${db.port:5432}/${db.name:demo_db}?currentSchema=public
+
+  jooq:
+    sql-dialect: postgres
+
   flyway:
-    schemas: demo_schema
+    schemas: public

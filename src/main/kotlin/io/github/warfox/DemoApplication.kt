@@ -7,5 +7,7 @@ import org.springframework.boot.runApplication
 class DemoApplication
 
 fun main(args: Array<String>) {
-    runApplication<DemoApplication>(*args)
+    runCatching { runApplication<DemoApplication>(args = args) }.onFailure {
+        System.err.println("main method exception: ${it.stackTraceToString()}")
+    }
 }
